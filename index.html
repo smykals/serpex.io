@@ -1,10 +1,1885 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Serpex</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Serpex | Technology Lifecycle Management</title>
+
+    <meta
+        name="description"
+        content="Serpex is building a practical approach to technology lifecycle management, including e-waste collection, data sanitization, technology transition, and responsible recycling."
+    >
+
+    <style>
+
+        /* ==================================================
+           SERPEX BRAND
+        ================================================== */
+
+        :root {
+            --serpex-green: #39D353;
+            --serpex-blue: #1A73E8;
+            --serpex-silver: #C0C0C0;
+            --serpex-dark: #0B1220;
+
+            --black: #05080D;
+            --surface: #0F192A;
+            --surface-light: #111D31;
+            --white: #FFFFFF;
+            --muted: #98A3B5;
+
+            --border: rgba(192, 192, 192, 0.16);
+        }
+
+
+        /* ==================================================
+           RESET
+        ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "A2 Gothic", Arial, Helvetica, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 82% 10%,
+                    rgba(26, 115, 232, 0.14),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 8% 65%,
+                    rgba(57, 211, 83, 0.08),
+                    transparent 26%
+                ),
+                linear-gradient(
+                    180deg,
+                    var(--black),
+                    var(--serpex-dark) 38%,
+                    #08101B 100%
+                );
+
+            color: var(--white);
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+        }
+
+
+        /* Background grid */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -2;
+
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.018) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.018) 1px,
+                    transparent 1px
+                );
+
+            background-size: 52px 52px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,.85),
+                    transparent 90%
+                );
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: 0 auto;
+        }
+
+
+        /* ==================================================
+           HEADER
+        ================================================== */
+
+        header {
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            background: rgba(5, 8, 13, 0.90);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        nav {
+            min-height: 82px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+        .nav-logo {
+            display: block;
+
+            width: 170px;
+
+            height: auto;
+        }
+
+
+        .nav-links {
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+
+            color: var(--serpex-silver);
+
+            font-size: .92rem;
+
+            letter-spacing: .04em;
+        }
+
+
+        .nav-links a {
+            position: relative;
+
+            transition: color .2s ease;
+        }
+
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: -8px;
+
+            width: 100%;
+
+            height: 2px;
+
+            transform: scaleX(0);
+
+            transform-origin: left;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--serpex-green),
+                    var(--serpex-blue)
+                );
+
+            transition: transform .2s ease;
+        }
+
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+
+        /* ==================================================
+           HERO
+        ================================================== */
+
+        .hero {
+            min-height: 88vh;
+
+            display: flex;
+
+            align-items: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 110px 0 95px;
+        }
+
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 700px;
+            height: 700px;
+
+            border-radius: 50%;
+
+            right: -280px;
+            top: -220px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(26,115,232,.20),
+                    transparent 66%
+                );
+
+            filter: blur(10px);
+        }
+
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 560px;
+            height: 560px;
+
+            border-radius: 50%;
+
+            left: -250px;
+            bottom: -280px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(57,211,83,.12),
+                    transparent 66%
+                );
+
+            filter: blur(10px);
+        }
+
+
+        .hero-grid {
+            position: relative;
+
+            z-index: 2;
+
+            display: grid;
+
+            grid-template-columns: 1.1fr .9fr;
+
+            gap: 75px;
+
+            align-items: center;
+        }
+
+
+        .eyebrow {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 24px;
+
+            color: var(--serpex-silver);
+
+            font-size: .77rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: .2em;
+        }
+
+
+        .eyebrow::before {
+            content: "";
+
+            width: 42px;
+
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--serpex-green),
+                    var(--serpex-blue)
+                );
+
+            box-shadow:
+                0 0 12px rgba(26,115,232,.35);
+        }
+
+
+        .hero h1 {
+            max-width: 850px;
+
+            margin-bottom: 28px;
+
+            font-size:
+                clamp(3.4rem, 7vw, 6.7rem);
+
+            line-height: .94;
+
+            letter-spacing: -.05em;
+        }
+
+
+        .hero h1 span {
+            display: block;
+        }
+
+
+        .hero h1 .accent {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--serpex-green) 0%,
+                    #75E96E 38%,
+                    var(--serpex-blue) 82%
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+        }
+
+
+        .hero-description {
+            max-width: 700px;
+
+            margin-bottom: 36px;
+
+            color: var(--serpex-silver);
+
+            font-size: 1.13rem;
+        }
+
+
+        .hero-actions {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 14px;
+
+            margin-bottom: 32px;
+        }
+
+
+        /* ==================================================
+           BUTTONS
+        ================================================== */
+
+        .button {
+            min-height: 50px;
+
+            padding: 0 24px;
+
+            border-radius: 6px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: .93rem;
+
+            font-weight: 700;
+
+            letter-spacing: .03em;
+
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease,
+                border-color .2s ease;
+        }
+
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+
+        .button-primary {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--serpex-green),
+                    #65E665
+                );
+
+            color: #04101A;
+
+            box-shadow:
+                0 0 22px rgba(57,211,83,.18);
+        }
+
+
+        .button-primary:hover {
+            box-shadow:
+                0 0 30px rgba(57,211,83,.32);
+        }
+
+
+        .button-secondary {
+            color: var(--white);
+
+            border:
+                1px solid rgba(26,115,232,.75);
+
+            background:
+                rgba(26,115,232,.06);
+        }
+
+
+        .button-secondary:hover {
+            border-color: var(--serpex-blue);
+
+            box-shadow:
+                0 0 24px rgba(26,115,232,.18);
+        }
+
+
+        /* ==================================================
+           DEVELOPMENT STATUS
+        ================================================== */
+
+        .status {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--muted);
+
+            font-size: .86rem;
+        }
+
+
+        .status-dot {
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: var(--serpex-green);
+
+            box-shadow:
+                0 0 12px rgba(57,211,83,.85);
+        }
+
+
+        /* ==================================================
+           HERO LOGO
+        ================================================== */
+
+        .hero-logo-wrap {
+            min-height: 450px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            position: relative;
+        }
+
+
+        .hero-logo-wrap::before {
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+
+            height: 420px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(26,115,232,.13),
+                    transparent 68%
+                );
+
+            filter: blur(6px);
+        }
+
+
+        .hero-logo-wrap::after {
+            content: "";
+
+            position: absolute;
+
+            width: 330px;
+
+            height: 330px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(57,211,83,.08);
+
+            box-shadow:
+                0 0 60px rgba(26,115,232,.07);
+        }
+
+
+        .hero-logo {
+            position: relative;
+
+            z-index: 2;
+
+            width: min(460px, 100%);
+
+            height: auto;
+
+            display: block;
+
+            filter:
+                drop-shadow(
+                    0 0 25px
+                    rgba(26,115,232,.20)
+                )
+                drop-shadow(
+                    0 0 18px
+                    rgba(57,211,83,.12)
+                );
+        }
+
+
+        /* ==================================================
+           STANDARD SECTIONS
+        ================================================== */
+
+        .section {
+            position: relative;
+
+            padding: 110px 0;
+        }
+
+
+        .section::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 50%;
+
+            width: min(1180px,92%);
+
+            transform: translateX(-50%);
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(57,211,83,.25),
+                    rgba(26,115,232,.25),
+                    transparent
+                );
+        }
+
+
+        .section-heading {
+            max-width: 780px;
+
+            margin-bottom: 56px;
+        }
+
+
+        .section-label {
+            margin-bottom: 12px;
+
+            color: var(--serpex-green);
+
+            font-size: .77rem;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: .19em;
+        }
+
+
+        .section-heading h2 {
+            margin-bottom: 18px;
+
+            font-size:
+                clamp(2.2rem,4vw,3.6rem);
+
+            line-height: 1.08;
+        }
+
+
+        .section-heading p {
+            color: var(--serpex-silver);
+
+            font-size: 1.04rem;
+        }
+
+
+        /* ==================================================
+           SERVICES
+        ================================================== */
+
+        .service-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2,minmax(0,1fr));
+
+            gap: 20px;
+        }
+
+
+        .service-card {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 36px;
+
+            border-radius: 12px;
+
+            border: 1px solid var(--border);
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,.015),
+                    rgba(255,255,255,0)
+                ),
+                rgba(15,25,42,.90);
+
+            transition:
+                transform .24s ease,
+                border-color .24s ease,
+                box-shadow .24s ease;
+        }
+
+
+        .service-card:hover {
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(26,115,232,.45);
+
+            box-shadow:
+                0 18px 44px rgba(0,0,0,.28);
+        }
+
+
+        .service-card::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 0;
+
+            width: 0;
+
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--serpex-green),
+                    var(--serpex-blue)
+                );
+
+            transition: width .26s ease;
+        }
+
+
+        .service-card:hover::after {
+            width: 100%;
+        }
+
+
+        .service-number {
+            margin-bottom: 18px;
+
+            color: var(--serpex-green);
+
+            font-size: .78rem;
+
+            font-weight: 800;
+
+            letter-spacing: .14em;
+        }
+
+
+        .service-card h3 {
+            margin-bottom: 12px;
+
+            font-size: 1.25rem;
+        }
+
+
+        .service-card p {
+            color: var(--serpex-silver);
+        }
+
+
+        /* ==================================================
+           ABOUT
+        ================================================== */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                .82fr 1.18fr;
+
+            gap: 70px;
+
+            align-items: start;
+        }
+
+
+        .about-title {
+            font-size:
+                clamp(2.4rem,5vw,4rem);
+
+            line-height: 1.05;
+        }
+
+
+        .accent-line {
+            width: 90px;
+
+            height: 4px;
+
+            margin-top: 28px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--serpex-green),
+                    var(--serpex-blue)
+                );
+
+            box-shadow:
+                0 0 18px rgba(26,115,232,.30);
+        }
+
+
+        .about-copy p {
+            margin-bottom: 22px;
+
+            color: var(--serpex-silver);
+
+            font-size: 1.07rem;
+        }
+
+
+        /* ==================================================
+           PROCESS
+        ================================================== */
+
+        .process-strip {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,minmax(0,1fr));
+
+            gap: 1px;
+
+            overflow: hidden;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 12px;
+
+            background: var(--border);
+        }
+
+
+        .process-step {
+            min-height: 210px;
+
+            padding: 30px;
+
+            background: var(--surface);
+
+            transition:
+                background .2s ease;
+        }
+
+
+        .process-step:hover {
+            background: var(--surface-light);
+        }
+
+
+        .process-step span {
+            display: block;
+
+            margin-bottom: 18px;
+
+            color: var(--serpex-blue);
+
+            font-size: .77rem;
+
+            font-weight: 800;
+
+            letter-spacing: .14em;
+        }
+
+
+        .process-step h3 {
+            margin-bottom: 10px;
+
+            font-size: 1.12rem;
+        }
+
+
+        .process-step p {
+            color: var(--serpex-silver);
+
+            font-size: .94rem;
+        }
+
+
+        /* ==================================================
+           WHO WE SERVE
+        ================================================== */
+
+        .audience-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,minmax(0,1fr));
+
+            gap: 18px;
+        }
+
+
+        .audience-card {
+            position: relative;
+
+            min-height: 225px;
+
+            overflow: hidden;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            border: 1px solid var(--border);
+
+            background:
+                rgba(15,25,42,.82);
+        }
+
+
+        .audience-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+
+            height: 150px;
+
+            top: -55px;
+
+            right: -55px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(26,115,232,.13),
+                    transparent 70%
+                );
+        }
+
+
+        .audience-card:nth-child(2)::before {
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(57,211,83,.12),
+                    transparent 70%
+                );
+        }
+
+
+        .audience-card h3 {
+            margin-bottom: 10px;
+
+            font-size: 1.18rem;
+        }
+
+
+        .audience-card p {
+            color: var(--serpex-silver);
+        }
+
+
+        /* ==================================================
+           CONTACT
+        ================================================== */
+
+        .contact-box {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 60px;
+
+            border-radius: 14px;
+
+            border:
+                1px solid rgba(26,115,232,.35);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(57,211,83,.04),
+                    rgba(26,115,232,.07)
+                ),
+                rgba(9,17,30,.94);
+
+            box-shadow:
+                0 0 44px rgba(26,115,232,.08);
+        }
+
+
+        .contact-box::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 4px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--serpex-green),
+                    var(--serpex-blue)
+                );
+
+            box-shadow:
+                0 0 18px rgba(26,115,232,.45);
+        }
+
+
+        .contact-box h2 {
+            margin-bottom: 16px;
+
+            font-size:
+                clamp(2.3rem,5vw,3.7rem);
+
+            line-height: 1.05;
+        }
+
+
+        .contact-box p {
+            max-width: 660px;
+
+            margin-bottom: 30px;
+
+            color: var(--serpex-silver);
+
+            font-size: 1.04rem;
+        }
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        footer {
+            padding: 42px 0;
+
+            border-top: 1px solid var(--border);
+
+            background:
+                rgba(5,8,13,.62);
+        }
+
+
+        .footer-content {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            color: var(--muted);
+
+            font-size: .87rem;
+        }
+
+
+        .footer-logo {
+            display: block;
+
+            width: 225px;
+
+            height: auto;
+        }
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media (max-width: 900px) {
+
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-grid {
+                gap: 50px;
+            }
+
+            .hero-logo-wrap {
+                min-height: 350px;
+            }
+
+            .hero-logo {
+                width: min(380px,90%);
+            }
+
+            .service-grid,
+            .audience-grid,
+            .process-strip {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-logo {
+                width: 145px;
+            }
+
+            .hero {
+                min-height: auto;
+
+                padding:
+                    90px 0 70px;
+            }
+
+            .hero h1 {
+                font-size:
+                    clamp(3rem,15vw,5rem);
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .contact-box {
+                padding: 38px 26px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .footer-logo {
+                width: 190px;
+            }
+        }
+
+    </style>
+
 </head>
+
+
 <body>
-    <h1>Serpex</h1>
-    <p>Website coming soon.</p>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header>
+
+    <div class="container">
+
+        <nav>
+
+            <a href="/" aria-label="Serpex Home">
+
+                <img
+                    src="assets/logo-wordmark.png"
+                    alt="Serpex"
+                    class="nav-logo"
+                >
+
+            </a>
+
+
+            <div class="nav-links">
+
+                <a href="#services">
+                    Services
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#process">
+                    Process
+                </a>
+
+                <a href="#who-we-serve">
+                    Who We Serve
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-grid">
+
+
+            <div>
+
+                <div class="eyebrow">
+
+                    Technology Lifecycle Management
+
+                </div>
+
+
+                <h1>
+
+                    <span>
+                        Beyond end-of-life.
+                    </span>
+
+                    <span class="accent">
+                        Beyond the standard.
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Serpex is building a smarter approach to
+                    technology lifecycle management — connecting
+                    secure retirement, data protection, transition,
+                    reuse, and responsible recycling into one
+                    structured lifecycle.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        href="#services"
+                        class="button button-primary"
+                    >
+
+                        Explore Serpex
+
+                    </a>
+
+
+                    <a
+                        href="#contact"
+                        class="button button-secondary"
+                    >
+
+                        Get in Touch
+
+                    </a>
+
+                </div>
+
+
+                <div class="status">
+
+                    <span class="status-dot"></span>
+
+                    Serpex is currently in development
+
+                </div>
+
+            </div>
+
+
+
+            <div class="hero-logo-wrap">
+
+                <img
+                    src="assets/logo-circle.png"
+                    alt="Serpex"
+                    class="hero-logo"
+                >
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     SERVICES
+================================================== -->
+
+<section
+    class="section"
+    id="services"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="section-label">
+
+                The Lifecycle
+
+            </div>
+
+
+            <h2>
+
+                Technology doesn't stop being a responsibility
+                when you're done with it.
+
+            </h2>
+
+
+            <p>
+
+                Serpex is being built to create a clear,
+                structured path for technology moving out
+                of active use.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="service-grid">
+
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    01
+                </div>
+
+                <h3>
+                    E-Waste Collection
+                </h3>
+
+                <p>
+
+                    Coordinated collection of retired computers,
+                    electronics, networking equipment, storage
+                    devices, peripherals, and other technology.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <h3>
+                    Data Sanitization
+                </h3>
+
+                <p>
+
+                    Structured wiping and destruction workflows
+                    designed around recognized data sanitization
+                    practices and documented completion.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <h3>
+                    Technology Transition
+                </h3>
+
+                <p>
+
+                    Organized removal and transition of retired
+                    equipment so outdated technology doesn't
+                    become an unmanaged operational problem.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    04
+                </div>
+
+                <h3>
+                    Responsible Recycling
+                </h3>
+
+                <p>
+
+                    Downstream handling focused on reuse,
+                    material recovery, and keeping viable
+                    technology out of unnecessary waste streams.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ABOUT
+================================================== -->
+
+<section
+    class="section"
+    id="about"
+>
+
+    <div class="container">
+
+        <div class="about-grid">
+
+
+            <div>
+
+                <div class="section-label">
+
+                    The Idea
+
+                </div>
+
+
+                <h2 class="about-title">
+
+                    Rethinking
+                    what happens next.
+
+                </h2>
+
+
+                <div class="accent-line"></div>
+
+            </div>
+
+
+
+            <div class="about-copy">
+
+
+                <p>
+
+                    Technology lifecycle management shouldn't
+                    end when a device is unplugged.
+
+                </p>
+
+
+                <p>
+
+                    Retired equipment can still contain sensitive
+                    data, reusable components, recoverable
+                    materials, and residual value. Without a
+                    defined process, those assets can quickly
+                    become a security, operational, and waste
+                    problem.
+
+                </p>
+
+
+                <p>
+
+                    Serpex is being built around a simple
+                    principle: the end of one technology
+                    lifecycle should be the beginning of a
+                    responsible next step.
+
+                </p>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     PROCESS
+================================================== -->
+
+<section
+    class="section"
+    id="process"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="section-label">
+
+                The Process
+
+            </div>
+
+
+            <h2>
+
+                A structured path from retirement
+                to what comes next.
+
+            </h2>
+
+
+            <p>
+
+                Know what the asset is, where it goes,
+                what happens to its data, and what happens next.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="process-strip">
+
+
+            <div class="process-step">
+
+                <span>
+                    01
+                </span>
+
+                <h3>
+                    Collect
+                </h3>
+
+                <p>
+
+                    Receive retired technology through
+                    an organized intake and handling process.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="process-step">
+
+                <span>
+                    02
+                </span>
+
+                <h3>
+                    Secure
+                </h3>
+
+                <p>
+
+                    Address stored data based on the equipment,
+                    customer requirements, and intended
+                    disposition.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="process-step">
+
+                <span>
+                    03
+                </span>
+
+                <h3>
+                    Evaluate
+                </h3>
+
+                <p>
+
+                    Determine whether equipment should be
+                    reused, transitioned, harvested,
+                    or recycled.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="process-step">
+
+                <span>
+                    04
+                </span>
+
+                <h3>
+                    Transition
+                </h3>
+
+                <p>
+
+                    Move the asset into its appropriate
+                    next lifecycle through responsible
+                    downstream handling.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     WHO WE SERVE
+================================================== -->
+
+<section
+    class="section"
+    id="who-we-serve"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="section-label">
+
+                Who We Serve
+
+            </div>
+
+
+            <h2>
+
+                Technology lifecycle needs
+                exist everywhere.
+
+            </h2>
+
+
+            <p>
+
+                Serpex is being developed to support
+                organizations and individuals who need
+                a practical way to move retired
+                technology forward.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="audience-grid">
+
+
+            <div class="audience-card">
+
+                <h3>
+                    Businesses
+                </h3>
+
+                <p>
+
+                    Organizations that need a structured
+                    process for retiring computers,
+                    infrastructure, peripherals, storage
+                    devices, and other technology.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="audience-card">
+
+                <h3>
+                    IT Teams
+                </h3>
+
+                <p>
+
+                    Technical teams that need a reliable
+                    downstream path for equipment that has
+                    reached the end of its operational
+                    lifecycle.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="audience-card">
+
+                <h3>
+                    Individuals
+                </h3>
+
+                <p>
+
+                    People looking for a responsible way
+                    to handle computers, electronics,
+                    storage devices, accessories, and
+                    other retired technology.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CONTACT
+================================================== -->
+
+<section
+    class="section"
+    id="contact"
+>
+
+    <div class="container">
+
+
+        <div class="contact-box">
+
+
+            <div class="section-label">
+
+                Connect
+
+            </div>
+
+
+            <h2>
+
+                Let's talk
+                technology lifecycle.
+
+            </h2>
+
+
+            <p>
+
+                Serpex is currently being developed.
+                Questions, partnership conversations,
+                and future service inquiries are welcome.
+
+            </p>
+
+
+            <a
+                href="mailto:contact@serpex.io"
+                class="button button-primary"
+            >
+
+                contact@serpex.io
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+
+            <img
+                src="assets/logo-with-TLM.png"
+                alt="Serpex Technology Lifecycle Management"
+                class="footer-logo"
+            >
+
+
+            <div>
+
+                © 2026 Serpex.
+                All rights reserved.
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</footer>
+
+
 </body>
+
 </html>
