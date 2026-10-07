@@ -46,3 +46,22 @@ body .site-footer .footer-bottom p{margin:0}
 body .site-footer .footer-bottom nav{display:flex;flex-wrap:wrap;gap:24px;min-height:0;padding:0}
 @media(max-width:800px){body .site-footer .footer-content{grid-template-columns:1fr 1fr;gap:28px}body .site-footer .footer-brand{grid-column:1/-1}}
 @media(max-width:520px){body .site-footer{padding-top:32px}body .site-footer .footer-content{grid-template-columns:1fr;gap:28px;padding-bottom:28px}body .site-footer .footer-brand{grid-column:auto}body .site-footer .footer-bottom{flex-direction:column;align-items:flex-start;gap:16px}body .site-footer .footer-bottom nav{gap:16px}}
+
+.inquiry-options{margin:4px 0 18px;border:1px solid rgba(192,208,224,.25);border-radius:6px;padding:14px 16px}
+.inquiry-options summary{cursor:pointer;color:#d9e4ef;font:600 .95rem/1.5 Exo,Arial,sans-serif}
+.inquiry-options summary:focus-visible{outline:2px solid #39d353;outline-offset:4px}
+.inquiry-options-fields{padding-top:18px}
+.inquiry-form>label,.inquiry-options-fields>label{display:block;margin-bottom:18px}
+
+.equipment-guide{margin-top:36px;padding:28px;border:1px solid rgba(192,208,224,.22);border-radius:12px;background:#0d1825}
+.equipment-guide>h3{font-size:1.25rem;margin-bottom:10px}
+.equipment-guide p,.equipment-guide li{font: .96rem/1.7 Arial,Helvetica,sans-serif;color:#b8c6d5}
+.equipment-guide .guide-intro{margin-bottom:22px}
+.equipment-guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.equipment-guide h4{font:600 1rem/1.5 Exo,Arial,sans-serif;color:#f0f5fa;margin-bottom:12px}
+.equipment-guide ul{list-style:disc;padding-left:19px;margin:0}
+.equipment-guide li{margin-bottom:8px}
+.equipment-guide-grid article p{margin-top:10px}
+.equipment-guide .guide-contact{border-top:1px solid rgba(192,208,224,.18);padding-top:18px;margin-top:22px}
+.equipment-guide a{color:#39d353;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:700px){.equipment-guide{padding:22px}.equipment-guide-grid{grid-template-columns:1fr;gap:22px}}
