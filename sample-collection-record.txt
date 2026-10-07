@@ -1,0 +1,25 @@
+SERPEX — ILLUSTRATIVE COLLECTION RECORD
+EXAMPLE TEMPLATE ONLY — NOT A CUSTOMER RECORD, CERTIFICATE, OR PROOF OF COMPLETED WORK
+
+Collection reference: [Reference]
+Customer / organization: [Name]
+Collection date and location: [Date / location]
+Transfer acknowledgement: [Customer and Serpex acknowledgement]
+Agreed scope / fees / transfer terms: [Terms confirmed before collection]
+
+Equipment received:
+[Description / make / model / quantity]
+[Individual identifier where appropriate]
+[Condition and data-bearing media identified]
+
+Data-handling requirements:
+[Required outcome and approved method]
+[Completed work, verification result, and date — only if performed]
+[Supporting record reference where available]
+
+Disposition:
+[Reuse / component recovery / downstream transfer / other agreed outcome]
+[Destination or transfer details where applicable]
+[Closure date and unresolved items]
+
+This example shows topics to discuss before collection. Actual records depend on the agreed scope and work performed. It makes no certification, compliance, or environmental-performance claim.

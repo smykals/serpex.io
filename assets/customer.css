@@ -1,0 +1,48 @@
+@font-face{font-family:Exo;src:url("fonts/exo-variable.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
+/* Customer readability and clearer inquiry flow, following the shared brand design. */
+.inquiry-expectations{margin:24px 0;color:var(--serpex-silver);font: .98rem/1.75 Arial,Helvetica,sans-serif}.inquiry-expectations h3{color:var(--white);font-size:1rem;margin-bottom:12px}.inquiry-expectations ol{padding-left:24px;list-style:decimal}.inquiry-expectations li{margin:10px 0;padding-left:4px}.inquiry-expectations strong{color:var(--white)}
+.source-home .hero h1{font-size:clamp(2rem,3.7vw,3.7rem);line-height:1.25;color:#f0f5fa;text-wrap:balance}.source-home .brand-slogan{font-family:Exo,Arial,Helvetica,sans-serif;font-size:1.1rem;color:#39d353;margin:0 0 22px}.compact-lifecycle{display:flex;align-items:center;gap:32px;justify-content:space-between}.compact-lifecycle>div{max-width:720px}.compact-lifecycle h2{font-size:clamp(1.5rem,2.7vw,2.5rem);line-height:1.4;margin:20px 0}.compact-lifecycle p{color:var(--serpex-silver);line-height:1.8;margin:12px 0}.compact-lifecycle .button{flex-shrink:0}.inquiry-privacy{margin-top:18px;color:var(--serpex-silver);font: .86rem/1.7 Arial,sans-serif}.inquiry-privacy summary{cursor:pointer;text-decoration:underline}.inquiry-privacy p{margin-top:12px}.confirmation .contact-box{max-width:850px;margin:35px auto}.confirmation h1{margin:25px 0}.confirmation p{margin:18px 0}.confirmation .hero-actions{margin-top:28px}@media(max-width:700px){.source-home .hero h1{font-size:clamp(1.8rem,7.4vw,2.8rem)}.compact-lifecycle{flex-direction:column;align-items:flex-start}.source-home .brand-slogan{font-size:.95rem}}
+body.source-home,body.source-services,body.source-lifecycle{font-family:Arial,Helvetica,sans-serif}
+.source-home .hero-description{font-size:1.05rem;line-height:1.75;max-width:550px}.source-home .hero{min-height:640px}
+.source-home .service-card p,.source-services .service-card p,.source-services .service-card ul,.source-services .service-card li{font-size:.98rem;line-height:1.7}
+.source-home .section-heading p,.source-services .section-heading p,.source-lifecycle .section-heading p,.source-lifecycle .opening-copy{font-size:1rem;line-height:1.75}
+.source-home .benefit-grid p,.source-lifecycle .benefit-grid p,.source-services .image-feature p{font-size:.96rem;line-height:1.75}
+.source-services .viewer-panel p,.source-lifecycle .viewer-panel p,.source-lifecycle .viewer-panel li,.source-lifecycle .report-card p{font-size:.96rem;line-height:1.75}
+.audience-paths{display:grid;grid-template-columns:1fr 1fr;gap:24px}.audience-paths article{padding:28px;border:1px solid rgba(57,211,83,.3);border-radius:16px;background:var(--surface)}.audience-paths h3{font-size:1.2rem;line-height:1.5;margin-bottom:16px}.audience-paths p{font-size:1rem;line-height:1.75;color:var(--serpex-silver);margin-bottom:22px}
+.owner-intro{display:grid;grid-template-columns:1fr 1.2fr;gap:45px;align-items:start}.owner-intro h2{font-size:clamp(1.5rem,2.6vw,2.5rem);line-height:1.5}.owner-intro p{font-size:1rem;line-height:1.8;color:var(--serpex-silver);margin-bottom:18px}
+.source-home .home-lifecycle-layout img{max-width:360px;margin:auto}.source-home .home-lifecycle-layout p{font-size:1rem;line-height:1.75}.source-home .faq summary{font-size:1rem}.source-home .faq details p{font-size:1rem;line-height:1.75}
+.source-home .contact-box p{font-size:.98rem;line-height:1.75}.source-home .inquiry-form input,.source-home .inquiry-form select,.source-home .inquiry-form textarea{font-family:Arial,Helvetica,sans-serif;font-size:1rem}.source-home .inquiry-form label{font-size:.94rem}.inquiry-form h3{font-size:1.08rem;line-height:1.5}.inquiry-actions{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}.inquiry-actions button{min-height:50px;cursor:pointer}.contact-boundary{margin-top:20px!important}.sample-link{margin-top:14px!important;font-size:.86rem!important}.source-home .contact-box .form-help{font-size:.86rem}.source-home .section-note{font-size:.9rem}
+@media(max-width:900px){.owner-intro{grid-template-columns:1fr;gap:24px}}
+@media(max-width:700px){.audience-paths{grid-template-columns:1fr}.audience-paths article{padding:24px}.source-home .hero{min-height:0}.source-home .hero-description{font-size:1rem}.source-home .section-heading p,.source-services .section-heading p,.source-lifecycle .section-heading p,.source-lifecycle .opening-copy{font-size:.97rem}.source-services .viewer-panel p,.source-lifecycle .viewer-panel p,.source-lifecycle .viewer-panel li{font-size:.96rem}.owner-intro h2{font-size:1.45rem}.source-home .contact-box p{font-size:.96rem}}
+
+.launch-notice{background:#142235;border-bottom:1px solid #39d353;padding:16px 0;color:#dce7f1;font: .94rem/1.7 Arial,sans-serif}.launch-notice strong{color:#39d353;margin-right:8px}
+
+/* Display the supplied square artwork through a shallow viewport around its wordmark. */
+body .nav-logo{width:290px;height:68px;object-fit:cover;object-position:center 51%}
+body .footer-logo{width:310px;height:78px;object-fit:cover;object-position:center 51%}
+@media(max-width:1000px){body .nav-logo{width:250px;height:60px}}
+@media(max-width:700px){body .nav-logo{width:230px;height:56px}body .footer-logo{width:280px;height:70px}}
+@media(max-width:360px){body .nav-logo{width:205px;height:50px}body .footer-logo{width:260px;height:65px}}
+
+/* Readable display typography across all pages. */
+:is(.source-home,.source-services,.source-lifecycle) :is(h1,h2,h3,.nav-links,.button,.footer-values,.brand-slogan,.framework-letter){font-family:Exo,Arial,Helvetica,sans-serif;font-weight:400;letter-spacing:0}
+.source-home .hero h1{font-weight:400;line-height:1.18;letter-spacing:0}
+
+
+:is(.source-home,.source-services,.source-lifecycle) :is(h1,h2,h3,.nav-links,.button,.footer-values,.brand-slogan,.framework-letter){font-weight:600}.source-home .hero h1{font-weight:650}
+/* Shared, evenly spaced footer. */
+body .site-footer{padding:48px 0 0;background:#080f19;border-top:1px solid rgba(192,208,224,.18);font-family:Arial,Helvetica,sans-serif}
+body .site-footer .footer-content{display:grid;grid-template-columns:1.2fr 1fr 1fr;align-items:start;gap:48px;padding-bottom:36px;font-size:.95rem;line-height:1.7}
+body .site-footer .footer-content>div:first-child{max-width:none}
+body .site-footer .footer-logo{display:block;width:280px;max-width:100%;height:70px;object-fit:cover;object-position:center 51%;margin:0 0 14px}
+body .site-footer h2{font-family:Exo,Arial,sans-serif;font-size:1rem;font-weight:600;line-height:1.5;letter-spacing:0;color:#f0f5fa;margin:0 0 16px}
+body .site-footer p{margin:0 0 6px;color:#b8c6d5}
+body .site-footer .footer-values{font-family:Exo,Arial,sans-serif;font-size:.9rem;color:#39d353;margin:0}
+body .site-footer a{color:#d9e4ef;text-decoration:none;overflow-wrap:anywhere}
+body .site-footer a:hover{color:#39d353;text-decoration:underline;text-underline-offset:4px}
+body .site-footer .footer-contact>a{display:inline-block;margin-bottom:12px}
+body .site-footer .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid rgba(192,208,224,.18);padding:22px 0;font-size:.82rem}
+body .site-footer .footer-bottom p{margin:0}
+body .site-footer .footer-bottom nav{display:flex;flex-wrap:wrap;gap:24px;min-height:0;padding:0}
+@media(max-width:800px){body .site-footer .footer-content{grid-template-columns:1fr 1fr;gap:28px}body .site-footer .footer-brand{grid-column:1/-1}}
+@media(max-width:520px){body .site-footer{padding-top:32px}body .site-footer .footer-content{grid-template-columns:1fr;gap:28px;padding-bottom:28px}body .site-footer .footer-brand{grid-column:auto}body .site-footer .footer-bottom{flex-direction:column;align-items:flex-start;gap:16px}body .site-footer .footer-bottom nav{gap:16px}}
