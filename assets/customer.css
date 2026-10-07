@@ -67,3 +67,14 @@ body .site-footer .footer-bottom nav{display:flex;flex-wrap:wrap;gap:24px;min-he
 @media(max-width:700px){.equipment-guide{padding:22px}.equipment-guide-grid{grid-template-columns:1fr;gap:22px}}
 
 body .site-footer .footer-arrangement{margin-top:12px;font-size:.86rem;line-height:1.6;max-width:30ch}
+
+.phone-actions{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 14px}
+.phone-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 18px;border:1px solid rgba(57,211,83,.45);border-radius:6px;color:#d9e4ef;text-decoration:none;font:600 .95rem/1.4 Exo,Arial,sans-serif}
+.phone-actions a:hover{background:rgba(57,211,83,.1);color:#39d353}
+.phone-actions a:focus-visible{outline:2px solid #39d353;outline-offset:3px}
+.source-home .hero-phone{margin:-4px 0 18px;color:#c4d0dc;font:.95rem/1.6 Arial,sans-serif}
+.hero-phone>a,.contact-phone a{color:#39d353;text-decoration:none}
+.contact-phone-block{margin:22px 0;padding:18px 0;border-top:1px solid rgba(192,208,224,.18);border-bottom:1px solid rgba(192,208,224,.18)}
+.source-home .contact-box .contact-phone{font-size:1.25rem;font-weight:600;margin:8px 0}
+body .site-footer .contact-phone{font-size:1rem;color:#f0f5fa;font-weight:600;margin:2px 0 0}
+body .site-footer .phone-actions a{color:#d9e4ef;text-decoration:none}
