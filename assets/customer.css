@@ -65,3 +65,5 @@ body .site-footer .footer-bottom nav{display:flex;flex-wrap:wrap;gap:24px;min-he
 .equipment-guide .guide-contact{border-top:1px solid rgba(192,208,224,.18);padding-top:18px;margin-top:22px}
 .equipment-guide a{color:#39d353;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:700px){.equipment-guide{padding:22px}.equipment-guide-grid{grid-template-columns:1fr;gap:22px}}
+
+body .site-footer .footer-arrangement{margin-top:12px;font-size:.86rem;line-height:1.6;max-width:30ch}
