@@ -1256,3 +1256,9 @@ header{background:rgba(0,0,0,.96)}
 @media(max-width:900px){.report-grid{grid-template-columns:1fr}.page-cta{flex-direction:column;align-items:flex-start}.page-cta .hero-actions{max-width:none}.viewer-panel{gap:24px;padding:26px}.lifecycle-intro{grid-template-columns:1fr}.lifecycle-intro img{max-width:620px;margin:auto}}
 @media(max-width:700px){.page-hero{padding:42px 0}.page-hero h1{font-size:clamp(2.2rem,10vw,3.6rem)}.image-feature,.viewer-panel{grid-template-columns:1fr}.image-feature:nth-child(even) .feature-picture{order:0}.viewer-panel img{max-height:260px}.viewer-panel{padding:24px}.selector{gap:8px}.selector button{padding:10px 12px;font-size:.8rem}.viewer-controls button{padding:10px}.viewer-controls output{font-size:.8rem}.page-cta{padding:26px}.section-heading h2{overflow-wrap:anywhere}}
 @media(prefers-reduced-motion:reduce){.viewer-panel:not([hidden]),.in-view{animation:none}}
+
+/* PROTO product-family acknowledgement in the SERPEX footer */
+.proto-footer{border-top:1px solid var(--border);padding:24px 0 20px;max-width:780px}
+.proto-footer-heading{font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase}
+.proto-footer p{font-size:.82rem;line-height:1.7;margin:8px 0 0;color:var(--serpex-silver)}
+.proto-footer .proto-footer-attribution{font-size:.72rem;letter-spacing:.03em;opacity:.85}
